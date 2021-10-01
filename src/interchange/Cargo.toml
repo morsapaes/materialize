@@ -11,7 +11,7 @@ path = "benches/benches.rs"
 harness = false
 
 [dependencies]
-anyhow = "1.0.43"
+anyhow = "1.0.44"
 avro-derive = { path = "../avro-derive" }
 base64 = "0.13.0"
 byteorder = "1.4.3"
@@ -33,9 +33,9 @@ repr = { path = "../repr" }
 serde = { version = "1.0.130", features = ["derive"] }
 serde-protobuf = "0.8.2"
 serde-value = "0.7.0"
-serde_json = "1.0.67"
-sha2 = "0.9.6"
-smallvec = "1.5.1"
+serde_json = "1.0.68"
+sha2 = "0.9.8"
+smallvec = "1.7.0"
 timely = { git = "https://github.com/TimelyDataflow/timely-dataflow", default-features = false, features = ["bincode"] }
 url = "2.2.2"
 uuid = { version = "0.8.2", features = ["serde"] }
