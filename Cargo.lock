@@ -1074,7 +1074,7 @@ dependencies = [
 [[package]]
 name = "differential-dataflow"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/differential-dataflow.git#7f1133a6fa3e588963c0b7a0f6971e26133ba71c"
+source = "git+https://github.com/TimelyDataflow/differential-dataflow.git#c88e70246505382b290c33abaf10b866e248b883"
 dependencies = [
  "abomonation",
  "abomonation_derive",
@@ -1129,7 +1129,7 @@ checksum = "923dea538cea0aa3025e8685b20d6ee21ef99c4f77e954a30febbaac5ec73a97"
 [[package]]
 name = "dogsdogsdogs"
 version = "0.1.0"
-source = "git+https://github.com/TimelyDataflow/differential-dataflow.git#7f1133a6fa3e588963c0b7a0f6971e26133ba71c"
+source = "git+https://github.com/TimelyDataflow/differential-dataflow.git#c88e70246505382b290c33abaf10b866e248b883"
 dependencies = [
  "abomonation",
  "abomonation_derive",
@@ -2134,9 +2134,9 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.102"
+version = "0.2.103"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a2a5ac8f984bfcf3a823267e5fde638acc3325f6496633a5da6bb6eb2171e103"
+checksum = "dd8f7255a17a627354f321ef0055d63b898c6fb27eff628af4d1b66b7331edf6"
 
 [[package]]
 name = "libm"
@@ -2240,7 +2240,7 @@ checksum = "a3e378b66a060d48947b590737b30a1be76706c8dd7b8ba0f2fe3989c68a853f"
 
 [[package]]
 name = "materialized"
-version = "0.9.7-dev"
+version = "0.9.9-dev"
 dependencies = [
  "anyhow",
  "askama",
@@ -2514,7 +2514,7 @@ dependencies = [
 [[package]]
 name = "mzcloud"
 version = "1.0.0"
-source = "git+https://github.com/MaterializeInc/cloud-sdks#95185098556c91e7b4cfde2434d4ef4d979c8f92"
+source = "git+https://github.com/MaterializeInc/cloud-sdks#e3760f3c72df372b92d4586680a8582c38b27fb1"
 dependencies = [
  "reqwest",
  "serde",
@@ -3229,6 +3229,7 @@ dependencies = [
  "anyhow",
  "openssl",
  "postgres-openssl",
+ "repr",
  "sql-parser",
  "tokio",
  "tokio-postgres",
@@ -3270,9 +3271,9 @@ checksum = "ac74c624d6b2d21f425f752262f42188365d7b8ff1aff74c82e45136510a4857"
 
 [[package]]
 name = "predicates"
-version = "2.0.2"
+version = "2.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c143348f141cc87aab5b950021bac6145d0e5ae754b0591de23244cee42c9308"
+checksum = "5c6ce811d0b2e103743eec01db1c50612221f173084ce2f7941053e94b6bb474"
 dependencies = [
  "difflib",
  "float-cmp",
@@ -3603,9 +3604,9 @@ dependencies = [
 
 [[package]]
 name = "rand_distr"
-version = "0.4.1"
+version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "051b398806e42b9cd04ad9ec8f81e355d0a382c543ac6672c62f5a5b452ef142"
+checksum = "964d548f8e7d12e102ef183a0de7e98180c9f8729f555897a857b96e48122d2f"
 dependencies = [
  "num-traits",
  "rand 0.8.4",
@@ -4252,31 +4253,11 @@ checksum = "c111b5bd5695e56cffe5129854aa230b39c93a305372fdbb2668ca2394eea9f8"
 
 [[package]]
 name = "smallvec"
-version = "1.6.1"
+version = "1.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fe0f37c9e8f3c5a4a66ad655a93c74daac4ad00c441533bf5c6e7990bb42604e"
+checksum = "1ecab6c735a6bb4139c0caafd0cc3635748bbb3acf4550e8138122099251f309"
 dependencies = [
  "serde",
-]
-
-[[package]]
-name = "smith-fuzz"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "env_logger",
- "futures",
- "futures-channel",
- "log",
- "postgres-types",
- "reqwest",
- "serde",
- "serde_json",
- "structopt",
- "test-util",
- "tokio",
- "tokio-postgres",
- "url",
 ]
 
 [[package]]
@@ -4323,6 +4304,7 @@ dependencies = [
  "postgres-protocol",
  "postgres-types",
  "postgres-util",
+ "protobuf",
  "protoc",
  "rdkafka",
  "regex",
@@ -4511,9 +4493,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.77"
+version = "1.0.78"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5239bc68e0fef57495900cfea4e8dc75596d9a319d7e16b1e0a440d24e6fe0a0"
+checksum = "a4eac2e6c19f5c3abc0c229bea31ff0b9b091c7b14990e8924b92902a303a0c0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4829,7 +4811,7 @@ dependencies = [
 [[package]]
 name = "timely"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#4c2886ba7b26cec49b0ca76ba9b2b7bbfb6fac1b"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#914b6ff8f29aec1cfe5c9fa72fb108bee697b7ba"
 dependencies = [
  "abomonation",
  "abomonation_derive",
@@ -4846,12 +4828,12 @@ dependencies = [
 [[package]]
 name = "timely_bytes"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#4c2886ba7b26cec49b0ca76ba9b2b7bbfb6fac1b"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#914b6ff8f29aec1cfe5c9fa72fb108bee697b7ba"
 
 [[package]]
 name = "timely_communication"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#4c2886ba7b26cec49b0ca76ba9b2b7bbfb6fac1b"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#914b6ff8f29aec1cfe5c9fa72fb108bee697b7ba"
 dependencies = [
  "abomonation",
  "abomonation_derive",
@@ -4867,7 +4849,7 @@ dependencies = [
 [[package]]
 name = "timely_logging"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#4c2886ba7b26cec49b0ca76ba9b2b7bbfb6fac1b"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#914b6ff8f29aec1cfe5c9fa72fb108bee697b7ba"
 
 [[package]]
 name = "tinytemplate"
@@ -5337,9 +5319,9 @@ dependencies = [
 
 [[package]]
 name = "whoami"
-version = "1.1.4"
+version = "1.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cabfe22aa4936611957e0b5ad9ed0472ac52b2bfb9aedac4a3f3a91a03bd1ff0"
+checksum = "483a59fee1a93fec90eb08bc2eb4315ef10f4ebc478b3a5fadc969819cb66117"
 dependencies = [
  "wasm-bindgen",
  "web-sys",
