@@ -6,7 +6,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-anyhow = "1.0.44"
+anyhow = "1.0.45"
 async-trait = "0.1.51"
 async-compression = { version = "0.3.8", features = ["tokio", "gzip"] }
 aws-util = { path = "../aws-util" }
@@ -26,7 +26,7 @@ expr = { path = "../expr" }
 flate2 = "1.0.22"
 futures = "0.3.17"
 globset = "0.4.8"
-inotify = "0.9.5"
+inotify = "0.9.6"
 interchange = { path = "../interchange" }
 itertools = "0.10.1"
 kafka-util = { path = "../kafka-util" }
@@ -35,7 +35,7 @@ log = "0.4.13"
 mz-avro = { path = "../avro", features = ["snappy"] }
 num_enum = "0.5.4"
 ore = { path = "../ore" }
-pdqselect = "0.1.0"
+pdqselect = "0.1.1"
 persist = { path = "../persist" }
 persist-types = { path = "../persist-types" }
 postgres-protocol = { git = "https://github.com/MaterializeInc/rust-postgres", branch = "mz-0.7.2" }
@@ -52,7 +52,7 @@ rusoto_kinesis = "0.47.0"
 rusoto_s3 = "0.47.0"
 rusoto_sqs = "0.47.0"
 serde = { version = "1.0.130", features = ["derive"] }
-serde_json = "1.0.68"
+serde_json = "1.0.70"
 tempfile = "3.2.0"
 timely = { git = "https://github.com/TimelyDataflow/timely-dataflow", default-features = false, features = ["bincode"] }
 tokio = { version = "1.13.0", features = ["fs", "rt", "sync"] }
