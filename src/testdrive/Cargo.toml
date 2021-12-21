@@ -8,6 +8,7 @@ publish = false
 [dependencies]
 async-compression = { version = "0.3.8", features = ["tokio", "gzip"] }
 async-trait = "0.1.52"
+aws-config = { version = "0.3.0", default-features = false, features = ["native-tls"] }
 aws-sdk-kinesis = { version = "0.3.0", default-features = false }
 aws-sdk-s3 = { version = "0.3.0", default-features = false }
 aws-sdk-sqs = { version = "0.3.0", default-features = false }
@@ -20,7 +21,7 @@ ccsr = { path = "../ccsr" }
 chrono = { version = "0.4.0", default-features = false, features = ["std"] }
 coord = { path = "../coord" }
 flate2 = "1.0.22"
-futures = "0.3.18"
+futures = "0.3.19"
 http = "0.2.5"
 interchange = { path = "../interchange" }
 itertools = "0.10.3"
@@ -40,16 +41,17 @@ rand = "0.8.4"
 rdkafka = { git = "https://github.com/fede1024/rust-rdkafka.git", features = ["cmake-build", "libz-static"] }
 regex = "1.5.4"
 repr = { path = "../repr" }
-reqwest = { version = "0.11.7", features = ["native-tls-vendored"] }
-serde = "1.0.131"
+reqwest = { version = "0.11.8", features = ["native-tls-vendored"] }
+serde = "1.0.132"
 serde_json = { version = "1.0.73", features = ["raw_value"] }
 similar = "2.1.0"
+sql = { path = "../sql" }
 sql-parser = { path = "../sql-parser" }
 structopt = "0.3.25"
 tempfile = "3.2.0"
 termcolor = "1.1.2"
 tiberius = { version = "0.6.5", default-features = false }
-tokio = "1.13.0"
+tokio = "1.15.0"
 tokio-postgres = { git = "https://github.com/MaterializeInc/rust-postgres", branch = "mz-0.7.2", features = ["with-chrono-0_4", "with-serde_json-1"] }
 tokio-stream = "0.1.8"
 tokio-util = { version = "0.6.9", features = ['compat'] }
