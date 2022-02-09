@@ -24,7 +24,7 @@ futures = "0.3.21"
 hex = "0.4.3"
 itertools = "0.10.3"
 lazy_static = "1.4.0"
-tracing = "0.1.29"
+tracing = "0.1.30"
 mz-avro = { path = "../avro", features = ["snappy"] }
 num-traits = "0.2.14"
 ordered-float = { version = "2.10.0", features = ["serde"] }
