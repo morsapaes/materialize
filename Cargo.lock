@@ -108,7 +108,7 @@ dependencies = [
  "futures",
  "hash_hasher",
  "num-traits",
- "parquet2",
+ "parquet2 0.8.1",
  "simdutf8",
 ]
 
@@ -3812,6 +3812,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "parquet2"
+version = "0.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a345de6fe57657061712781875c935672889b60dcabbcdbcedda150fbad664c"
+dependencies = [
+ "bitpacking",
+ "parquet-format-async-temp",
+ "streaming-decompression",
+]
+
+[[package]]
 name = "parse-zoneinfo"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3897,7 +3908,7 @@ dependencies = [
  "md-5",
  "mz-aws-util",
  "ore",
- "parquet2",
+ "parquet2 0.10.1",
  "persist-types",
  "prost",
  "prost-build",
