@@ -76,7 +76,7 @@ prometheus = { git = "https://github.com/MaterializeInc/rust-prometheus.git", de
 rdkafka-sys = { git = "https://github.com/fede1024/rust-rdkafka.git", features = ["cmake-build", "libz-static"] }
 reqwest = { version = "0.11.9", features = ["json"] }
 rlimit = "0.7.0"
-semver = "1.0.5"
+semver = "1.0.6"
 serde = { version = "1.0.136", features = ["derive"] }
 serde_json = "1.0.79"
 shell-words = "1.1.0"
@@ -84,7 +84,7 @@ sysctl = "0.4.3"
 sysinfo = "0.23.2"
 tempfile = "3.2.0"
 timely = { git = "https://github.com/TimelyDataflow/timely-dataflow", default-features = false, features = ["bincode"] }
-tokio = { version = "1.16.1", features = ["sync"] }
+tokio = { version = "1.17.0", features = ["sync"] }
 tokio-openssl = "0.6.3"
 tokio-stream = { version = "0.1.8", features = ["net"] }
 tracing = "0.1.31"
