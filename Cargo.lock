@@ -65,9 +65,9 @@ dependencies = [
 
 [[package]]
 name = "anyhow"
-version = "1.0.55"
+version = "1.0.56"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "159bb86af3a200e19a068f4224eae4c8bb2d0fa054c7e5d1cacd5cef95e684cd"
+checksum = "4361135be9122e0870de935d7c439aef945b9f9ddd4199a553b5270b49c82a27"
 dependencies = [
  "backtrace",
 ]
@@ -85,6 +85,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dabe5a181f83789739c194cbe5a897dde195078fac08568d09221fd6137a7ba8"
 
 [[package]]
+name = "array-init-cursor"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bf7d0a018de4f6aa429b9d33d69edf69072b1c5b1cb8d3e4a5f7ef898fc3eb76"
+
+[[package]]
 name = "arrayvec"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -98,27 +104,32 @@ checksum = "8da52d66c7071e2e3fa2a1e5c6d088fec47b593032b254f5e980de8ea54454d6"
 
 [[package]]
 name = "arrow-format"
-version = "0.3.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9f7da2d9660bfaebbdb0a44a33b3bd1dcb5a952fafa02c0dfc6a51ea471fef2a"
+checksum = "2333f8ccf0d597ba779863c57a0b61f635721187fb2fdeabae92691d7d582fe5"
 dependencies = [
- "flatbuffers",
+ "planus",
+ "serde",
 ]
 
 [[package]]
 name = "arrow2"
-version = "0.8.2"
+version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e555af270629730dc28277dbcdc3e793f3a6eec3205f50cfbf2eda2b82943058"
+checksum = "2e387b20dd573a96f36b173d9027483898f944d696521afd74e2caa3c813d86e"
 dependencies = [
  "arrow-format",
  "base64",
+ "bytemuck",
  "chrono",
+ "either",
+ "fallible-streaming-iterator",
  "futures",
  "hash_hasher",
  "num-traits",
  "parquet2",
  "simdutf8",
+ "streaming-iterator",
 ]
 
 [[package]]
@@ -591,7 +602,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eb5a2c90311b0d20cf23212a15961cad2b76480863b1f7ce0608d9ece8dacdfb"
 dependencies = [
  "aws-smithy-types",
- "urlencoding",
+ "urlencoding 1.3.3",
 ]
 
 [[package]]
@@ -754,6 +765,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "bytemuck"
+version = "1.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cdead85bdec19c194affaeeb670c0e41fe23de31459efd1c174d049269cf02cc"
+dependencies = [
+ "bytemuck_derive",
+]
+
+[[package]]
+name = "bytemuck_derive"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "562e382481975bc61d11275ac5e62a19abd00b0547d99516a415336f183dcd0e"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "byteorder"
 version = "1.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -856,9 +887,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "3.1.6"
+version = "3.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d8c93436c21e4698bacadf42917db28b23017027a4deccb35dbe47a7e7840123"
+checksum = "71c47df61d9e16dc010b55dba1952a57d8c215dbb533fd13cdd13369aac73b1c"
 dependencies = [
  "atty",
  "bitflags",
@@ -874,9 +905,9 @@ dependencies = [
 
 [[package]]
 name = "clap_derive"
-version = "3.1.4"
+version = "3.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "da95d038ede1a964ce99f49cbe27a7fb538d1da595e4b4f70b8c8f338d17bf16"
+checksum = "a3aab4734e083b809aaf5794e14e756d1c798d2c69c7f7de7a09a2f5214993c1"
 dependencies = [
  "heck",
  "proc-macro-error",
@@ -1720,17 +1751,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "279fb028e20b3c4c320317955b77c5e0c9701f05a1d309905d6fc702cdc5053e"
 
 [[package]]
-name = "flatbuffers"
-version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ef4c5738bcd7fad10315029c50026f83c9da5e4a21f8ed66826f43e0e2bde5f6"
-dependencies = [
- "bitflags",
- "smallvec",
- "thiserror",
-]
-
-[[package]]
 name = "flate2"
 version = "1.0.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1849,9 +1869,9 @@ dependencies = [
 
 [[package]]
 name = "fs_extra"
-version = "1.1.0"
+version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5f2a4a2034423744d2cc7ca2068453168dcdb82c438419e639a26bd87839c674"
+checksum = "2022715d62ab30faffd124d40b76f4134a550a87792276512b18d63272333394"
 
 [[package]]
 name = "fstrings"
@@ -2841,7 +2861,6 @@ dependencies = [
  "mz-coord",
  "mz-dataflow",
  "mz-dataflow-types",
- "mz-dataflowd",
  "mz-frontegg-auth",
  "mz-http-proxy",
  "mz-kafka-util",
@@ -2852,7 +2871,6 @@ dependencies = [
  "mz-pgtest",
  "mz-pgwire",
  "mz-pid-file",
- "mz-process-collector",
  "mz-prof",
  "mz-repr",
  "mz-sql",
@@ -3208,6 +3226,7 @@ dependencies = [
  "mz-repr",
  "mz-sql",
  "mz-sql-parser",
+ "mz-stash",
  "mz-transform",
  "postgres-types",
  "prometheus",
@@ -3286,6 +3305,7 @@ dependencies = [
  "tempfile",
  "timely",
  "tokio",
+ "tokio-byteorder",
  "tokio-postgres",
  "tokio-serde",
  "tokio-util 0.7.1",
@@ -3335,6 +3355,7 @@ dependencies = [
  "mz-pgrepr",
  "mz-postgres-util",
  "mz-repr",
+ "mz-stash",
  "num_enum",
  "prost",
  "prost-build",
@@ -3364,6 +3385,8 @@ dependencies = [
  "mz-dataflow",
  "mz-dataflow-types",
  "mz-ore",
+ "mz-repr",
+ "serde",
  "timely",
  "tokio",
  "tokio-serde",
@@ -3378,6 +3401,7 @@ version = "0.0.0"
 dependencies = [
  "aho-corasick",
  "anyhow",
+ "bytes",
  "chrono",
  "criterion",
  "csv",
@@ -3395,6 +3419,7 @@ dependencies = [
  "mz-expr-test-util",
  "mz-lowertest",
  "mz-ore",
+ "mz-persist-types",
  "mz-pgrepr",
  "mz-repr",
  "num",
@@ -3403,6 +3428,8 @@ dependencies = [
  "ordered-float",
  "paste",
  "proc-macro2",
+ "prost",
+ "prost-build",
  "regex",
  "regex-syntax",
  "serde",
@@ -3613,7 +3640,7 @@ dependencies = [
  "serde_json",
  "tempfile",
  "tokio",
- "urlencoding",
+ "urlencoding 2.1.0",
  "zip",
 ]
 
@@ -3688,6 +3715,7 @@ dependencies = [
 name = "mz-persist"
 version = "0.0.0"
 dependencies = [
+ "anyhow",
  "arrow2",
  "async-trait",
  "aws-config",
@@ -3712,6 +3740,7 @@ dependencies = [
  "prost",
  "prost-build",
  "rand",
+ "rusqlite",
  "semver",
  "serde",
  "serde_json",
@@ -3734,6 +3763,7 @@ dependencies = [
  "futures-executor",
  "futures-util",
  "mz-ore",
+ "mz-persist",
  "mz-persist-types",
  "serde",
  "timely",
@@ -3842,17 +3872,6 @@ dependencies = [
  "postgres-openssl",
  "tokio",
  "tokio-postgres",
-]
-
-[[package]]
-name = "mz-process-collector"
-version = "0.0.0"
-dependencies = [
- "lazy_static",
- "libc",
- "mz-ore",
- "procfs",
- "prometheus",
 ]
 
 [[package]]
@@ -4042,7 +4061,6 @@ dependencies = [
  "anyhow",
  "differential-dataflow",
  "mz-persist-types",
- "mz-timely-util",
  "rusqlite",
  "tempfile",
  "timely",
@@ -4097,6 +4115,8 @@ dependencies = [
  "mz-aws-util",
  "mz-ccsr",
  "mz-coord",
+ "mz-dataflow-types",
+ "mz-expr",
  "mz-interchange",
  "mz-kafka-util",
  "mz-ore",
@@ -4104,6 +4124,7 @@ dependencies = [
  "mz-repr",
  "mz-sql",
  "mz-sql-parser",
+ "mz-stash",
  "postgres_array",
  "predicates",
  "prost",
@@ -4591,9 +4612,9 @@ dependencies = [
 
 [[package]]
 name = "parquet2"
-version = "0.8.1"
+version = "0.10.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "57e98d7da0076cead49c49580cc5771dfe0ba8a93cadff9b47c1681a4a78e1f9"
+checksum = "6b085f9e78e4842865151b693f6d94bdf7b280af66daa6e3587adeb3106a07e9"
 dependencies = [
  "async-stream",
  "bitpacking",
@@ -4724,6 +4745,15 @@ name = "pkg-config"
 version = "0.3.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7c9b1041b4387893b91ee6746cddfc28516aff326a3519fb2adf820932c5e6cb"
+
+[[package]]
+name = "planus"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bffebaf174d6cad46a5f0f1bb1c45c6eb509571688bcb18dfab217f3c9f9b151"
+dependencies = [
+ "array-init-cursor",
+]
 
 [[package]]
 name = "plotters"
@@ -4945,12 +4975,13 @@ dependencies = [
 
 [[package]]
 name = "procfs"
-version = "0.12.0"
+version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0941606b9934e2d98a3677759a971756eb821f75764d0e0d26946d08e74d9104"
+checksum = "95e344cafeaeefe487300c361654bcfc85db3ac53619eeccced29f5ea18c4c70"
 dependencies = [
  "bitflags",
  "byteorder",
+ "flate2",
  "hex",
  "lazy_static",
  "libc",
@@ -4958,14 +4989,17 @@ dependencies = [
 
 [[package]]
 name = "prometheus"
-version = "0.10.0"
-source = "git+https://github.com/MaterializeInc/rust-prometheus.git#8bd8207fd0ac3ebb594a0832e5e5a70ddd8e1a60"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b7f64969ffd5dd8f39bd57a68ac53c163a095ed9d0fb707146da1b27025a3504"
 dependencies = [
  "cfg-if",
  "fnv",
  "lazy_static",
+ "libc",
+ "memchr",
  "parking_lot 0.11.1",
- "regex",
+ "procfs",
  "thiserror",
 ]
 
@@ -5238,7 +5272,7 @@ dependencies = [
 [[package]]
 name = "rdkafka"
 version = "0.28.0"
-source = "git+https://github.com/fede1024/rust-rdkafka.git#221fb0540c4cee3c1805bac16f3ab44282263fe7"
+source = "git+https://github.com/fede1024/rust-rdkafka.git#882158555b61f8257a69add38e2cd883d7358ce1"
 dependencies = [
  "futures-channel",
  "futures-util",
@@ -5255,7 +5289,7 @@ dependencies = [
 [[package]]
 name = "rdkafka-sys"
 version = "4.2.0+1.8.2"
-source = "git+https://github.com/fede1024/rust-rdkafka.git#221fb0540c4cee3c1805bac16f3ab44282263fe7"
+source = "git+https://github.com/fede1024/rust-rdkafka.git#882158555b61f8257a69add38e2cd883d7358ce1"
 dependencies = [
  "cmake",
  "libc",
@@ -5376,9 +5410,9 @@ dependencies = [
 
 [[package]]
 name = "rlimit"
-version = "0.7.0"
+version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "347703a5ae47adf1e693144157be231dde38c72bd485925cae7407ad3e52480b"
+checksum = "0fbcc6f9672090a4060a6de8d0fb2d4acd381363cda5b7049a26e2b32464f8ad"
 dependencies = [
  "libc",
 ]
@@ -5776,6 +5810,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "streaming-iterator"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "303235c177994a476226b80d076bd333b7b560fb05bd242a10609d11b07f81f5"
+
+[[package]]
 name = "stringprep"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5841,9 +5881,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.90"
+version = "1.0.91"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "704df27628939572cd88d33f171cd6f896f4eaca85252c6e0a72d8d8287ee86f"
+checksum = "b683b2b825c8eef438b77c36a06dc262294da3d5a5813fac20da149241dcd44d"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -6059,7 +6099,7 @@ checksum = "42657b1a6f4d817cda8e7a0ace261fe0cc946cf3a80314390b22cc61ae080792"
 [[package]]
 name = "timely"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#6f5057355305e54a36774aa805ec1c625cf8532e"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#c4145f0ab5c3830f08d1fd8158a441503554de7b"
 dependencies = [
  "abomonation",
  "abomonation_derive",
@@ -6077,12 +6117,12 @@ dependencies = [
 [[package]]
 name = "timely_bytes"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#6f5057355305e54a36774aa805ec1c625cf8532e"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#c4145f0ab5c3830f08d1fd8158a441503554de7b"
 
 [[package]]
 name = "timely_communication"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#6f5057355305e54a36774aa805ec1c625cf8532e"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#c4145f0ab5c3830f08d1fd8158a441503554de7b"
 dependencies = [
  "abomonation",
  "abomonation_derive",
@@ -6098,7 +6138,7 @@ dependencies = [
 [[package]]
 name = "timely_container"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#6f5057355305e54a36774aa805ec1c625cf8532e"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#c4145f0ab5c3830f08d1fd8158a441503554de7b"
 dependencies = [
  "columnation",
  "serde",
@@ -6107,7 +6147,7 @@ dependencies = [
 [[package]]
 name = "timely_logging"
 version = "0.12.0"
-source = "git+https://github.com/TimelyDataflow/timely-dataflow#6f5057355305e54a36774aa805ec1c625cf8532e"
+source = "git+https://github.com/TimelyDataflow/timely-dataflow#c4145f0ab5c3830f08d1fd8158a441503554de7b"
 
 [[package]]
 name = "tinytemplate"
@@ -6138,6 +6178,16 @@ dependencies = [
  "tokio-macros",
  "tracing",
  "winapi",
+]
+
+[[package]]
+name = "tokio-byteorder"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5cf347e8ae1d1ffd16c8aed569172a71bd81098a001d0f4964d476c0097aba4a"
+dependencies = [
+ "byteorder",
+ "tokio",
 ]
 
 [[package]]
@@ -6447,9 +6497,9 @@ dependencies = [
 
 [[package]]
 name = "tracing-subscriber"
-version = "0.3.9"
+version = "0.3.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9e0ab7bdc962035a87fba73f3acca9b8a8d0034c2e6f60b84aeaaddddc155dce"
+checksum = "b9df98b037d039d03400d9dd06b0f8ce05486b5f25e9a2d7d36196e142ebbc52"
 dependencies = [
  "ansi_term",
  "lazy_static",
@@ -6598,6 +6648,12 @@ name = "urlencoding"
 version = "1.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5a1f0175e03a0973cf4afd476bef05c26e228520400eb1fd473ad417b1c00ffb"
+
+[[package]]
+name = "urlencoding"
+version = "2.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68b90931029ab9b034b300b797048cf23723400aa757e8a2bfb9d748102f9821"
 
 [[package]]
 name = "utf-8"
