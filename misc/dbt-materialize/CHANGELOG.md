@@ -1,6 +1,6 @@
 # dbt-materialize Changelog
 
-## 1.0.5 - 2022-04-26
+## 1.0.5 - 2022-05-02
 
 * Deprecate support for custom index materialization.
 * Enable defining indexes when creating a `materializedview`, `view`, or `source` using the `indexes` config.
