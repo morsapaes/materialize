@@ -1210,12 +1210,11 @@ checksum = "5827cebf4670468b8772dd191856768aedcb1b0278a04f989f7766351917b9dc"
 
 [[package]]
 name = "cpp_demangle"
-version = "0.3.2"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "44919ecaf6f99e8e737bc239408931c9a01e9a6c74814fee8242dd2506b65390"
+checksum = "b446fd40bcc17eddd6a4a78f24315eb90afdb3334999ddfd4909985c47722442"
 dependencies = [
  "cfg-if",
- "glob",
 ]
 
 [[package]]
@@ -3461,7 +3460,7 @@ dependencies = [
  "mz-sql",
  "mz-stash",
  "mz-storage-client",
- "nix",
+ "nix 0.25.0",
  "num_cpus",
  "once_cell",
  "openssl",
@@ -4675,6 +4674,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "nix"
+version = "0.26.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "46a58d1d356c6597d08cde02c2f09d785b09e28711837b1ed667dc652c08a694"
+dependencies = [
+ "bitflags",
+ "cfg-if",
+ "libc",
+ "static_assertions",
+]
+
+[[package]]
 name = "nom"
 version = "7.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5356,15 +5367,15 @@ dependencies = [
 
 [[package]]
 name = "pprof"
-version = "0.10.0"
-source = "git+https://github.com/MaterializeInc/pprof-rs.git#01621bfd418799f5a285dcf8a7fd3123363f6894"
+version = "0.11.0"
+source = "git+https://github.com/MaterializeInc/pprof-rs.git#7a96fbe0f8cf93d66f5d80c7d73a48b8624db6ab"
 dependencies = [
  "backtrace",
  "cfg-if",
  "findshlibs",
  "libc",
  "log",
- "nix",
+ "nix 0.26.1",
  "once_cell",
  "parking_lot",
  "smallvec",
@@ -6521,9 +6532,9 @@ checksum = "6bdef32e8150c2a081110b42772ffe7d7c9032b606bc226c8260fd97e0976601"
 
 [[package]]
 name = "symbolic-common"
-version = "9.0.0"
+version = "10.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9ea2ab8b85d27d49d184438b4b77fbd521b385cc9c5c802f60e784f2df25a03d"
+checksum = "c5d7c8cd6663e22c348c74cf0b2c77d196fd252c7efe5594ae05edb07d0475da"
 dependencies = [
  "debugid",
  "memmap2",
@@ -6533,9 +6544,9 @@ dependencies = [
 
 [[package]]
 name = "symbolic-demangle"
-version = "9.0.0"
+version = "10.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7939b15a1c62633d1fce17f8a7b668312eaa2d3b117bf4ced5e6e77870c43b6a"
+checksum = "86dc78e43163d342e72c0175113cf0c6ffc6b2540163c8680c4ed91c992af9e2"
 dependencies = [
  "cpp_demangle",
  "rustc-demangle",
