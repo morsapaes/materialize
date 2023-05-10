@@ -20,7 +20,7 @@ bench = false
 # don't leak in dependencies on other Materialize packages.
 [dependencies]
 anyhow = { version = "1.0.66", features = ["backtrace"] }
-arrow2 = { version = "0.16.0", features = ["io_ipc", "io_parquet"] }
+arrow2 = { version = "0.17.1", features = ["io_ipc", "io_parquet"] }
 async-trait = "0.1.68"
 aws-config = { version = "0.55", default-features = false, features = ["native-tls"] }
 aws-credential-types = { version = "0.55", features = ["hardcoded-credentials"] }
