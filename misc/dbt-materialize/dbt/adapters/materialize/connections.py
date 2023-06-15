@@ -30,7 +30,7 @@ logger = AdapterLogger("Materialize")
 
 @dataclass
 class MaterializeCredentials(PostgresCredentials):
-    cluster: Optional[str] = "default"
+    cluster: Optional[str] = None
 
     @property
     def type(self):
@@ -64,9 +64,25 @@ class MaterializeConnectionManager(PostgresConnectionManager):
 
         cursor = connection.handle.cursor()
 
-        # Check for the current DB version using the "mz_introspection" cluster in case "default"
-        # doesn't exist.
-        cursor.execute("SHOW mz_version")
+        # dbt connections **should not** error in the absence of the
+        # pre-installed `default` cluster. `mz_introspection` now has some
+        # guardrails to avoid misusage (see #18312), so we default to this
+        # cluster. We cannot use the cluster specified in `profiles.yml` to
+        # connect, because the connection might fail in cases where this
+        # cluster contains sources or sinks (see #17285).
+        # dbt runs **should** error in the absence of the pre-installed `default`
+        # cluster **if** no cluster is specified in `profiles.yml`. This default
+        # should prevent runs from failing in a first contact with Materialize,
+        # though this is still a footgun: runs will fail for projects mixing
+        # sources/sinks and materialized views/indexes (see #17659).
+        cluster = connection.credentials.cluster
+
+        conn_cluster = (cluster if cluster is not None else "mz_introspection")
+
+        logger.debug("Switching to cluster '{}'".format(conn_cluster))
+        cursor.execute("SET cluster = %s" % conn_cluster)
+
+        cursor.execute("SELECT mz_version()")
         mz_version = cursor.fetchone()[0].split()[0].strip("v")
 
         if not versions_compatible(mz_version, SUPPORTED_MATERIALIZE_VERSIONS):
