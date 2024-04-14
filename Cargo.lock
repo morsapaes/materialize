@@ -7096,7 +7096,7 @@ dependencies = [
 [[package]]
 name = "postgres-protocol"
 version = "0.6.5"
-source = "git+https://github.com/MaterializeInc/rust-postgres#b759caa33610403aa74b1cfdd37f45eb3100c9af"
+source = "git+https://github.com/MaterializeInc/rust-postgres#91522e47643ebb6d6a5e392957b2319e5bb522ad"
 dependencies = [
  "base64 0.21.5",
  "byteorder",
@@ -7113,7 +7113,7 @@ dependencies = [
 [[package]]
 name = "postgres-types"
 version = "0.2.5"
-source = "git+https://github.com/MaterializeInc/rust-postgres#b759caa33610403aa74b1cfdd37f45eb3100c9af"
+source = "git+https://github.com/MaterializeInc/rust-postgres#91522e47643ebb6d6a5e392957b2319e5bb522ad"
 dependencies = [
  "bytes",
  "chrono",
@@ -8851,9 +8851,9 @@ dependencies = [
 
 [[package]]
 name = "textwrap"
-version = "0.16.0"
+version = "0.16.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "222a222a5bfe1bba4a77b45ec488a741b3cb8872e5e499451fd7d0129c9c7c3d"
+checksum = "23d434d3f8967a09480fb04132ebe0a3e088c173e6d0ee7897abbdf4eab0f8b9"
 dependencies = [
  "terminal_size",
 ]
@@ -9155,7 +9155,7 @@ dependencies = [
 [[package]]
 name = "tokio-postgres"
 version = "0.7.8"
-source = "git+https://github.com/MaterializeInc/rust-postgres#b759caa33610403aa74b1cfdd37f45eb3100c9af"
+source = "git+https://github.com/MaterializeInc/rust-postgres#91522e47643ebb6d6a5e392957b2319e5bb522ad"
 dependencies = [
  "async-trait",
  "byteorder",
@@ -9170,6 +9170,7 @@ dependencies = [
  "pin-project-lite",
  "postgres-protocol",
  "postgres-types",
+ "rand",
  "serde",
  "socket2 0.5.3",
  "tokio",
