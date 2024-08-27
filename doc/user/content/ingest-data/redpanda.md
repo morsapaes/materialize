@@ -13,7 +13,7 @@ menu:
 ---
 
 [//]: # "TODO(morsapaes) The Kafka guides need to be rewritten for consistency
-with the Postgres ones. We should include spill to disk in the guidance then."
+with the PostgreSQL ones."
 
 Because [Redpanda](https://vectorized.io/) is Kafka API-compatible, Materialize
 can process data from it in the same way it processes data from Kafka sources.

@@ -11,7 +11,7 @@ menu:
 ---
 
 [//]: # "TODO(morsapaes) The Kafka guides need to be rewritten for consistency
-with the Postgres ones. We should include spill to disk in the guidance then."
+with the PostgreSQL ones."
 
 This guide goes through the required steps to connect Materialize to an Upstash
 Kafka cluster.

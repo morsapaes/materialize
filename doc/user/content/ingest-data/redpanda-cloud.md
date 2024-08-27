@@ -11,7 +11,7 @@ menu:
 ---
 
 [//]: # "TODO(morsapaes) The Kafka guides need to be rewritten for consistency
-with the Postgres ones."
+with the PostgreSQL ones."
 
 This guide goes through the required steps to connect Materialize to a Redpanda
 Cloud cluster. If you already have a Redpanda Cloud cluster up and running,
