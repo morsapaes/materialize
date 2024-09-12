@@ -1,6 +1,6 @@
 ---
 title: "PostgreSQL CDC using Kafka and Debezium"
-description: "How to propagate Change Data Capture (CDC) data from a PostgreSQL database to Materialize"
+description: "How to propagate Change Data Capture (CDC) data from a PostgreSQL database to Materialize using Kafka and Debezium"
 aliases:
   - /connect-sources/cdc-postgres-kafka-debezium/
   - /ingest-data/cdc-postgres-kafka-debezium/
@@ -11,14 +11,20 @@ menu:
     identifier: "pg-dbz"
 ---
 
+{{< note >}}
+You can use [Debezium](https://debezium.io/) to propagate Change
+Data Capture(CDC) data to Materialize from a PostgreSQL database, but
+we **strongly recommend** using the native [PostgreSQL](/sql/create-source/postgres/)
+source instead.
+{{</ note >}}
+
 Change Data Capture (CDC) allows you to track and propagate changes in a
-Postgres database to downstream consumers based on its Write-Ahead Log (WAL).
+PostgreSQL database to downstream consumers based on its Write-Ahead Log (WAL).
 
 This guide shows you how to use [Debezium](https://debezium.io/) and [Kafka](/sql/create-source/kafka/#using-debezium)
-to propagate CDC data from Postgres to Materialize. Debezium captures row-level
-changes resulting from `INSERT`, `UPDATE` and `DELETE` operations in the
-upstream database and publishes them as events to Kafka using Kafka
-Connect-compatible connectors.
+to propagate CDC data from PostgreSQL to Materialize. In this
+guide, we'll cover how to use Materialize to create and efficiently maintain
+real-time materialized views on top of CDC data.
 
 {{< tip >}}
 {{< guided-tour-blurb-for-ingest-data >}}
@@ -45,7 +51,7 @@ As a _superuser_:
 
     The default value is `replica`. For CDC, you'll need to set it to `logical`
     in the database configuration file (`postgresql.conf`). Keep in mind that
-    changing the `wal_level` requires a restart of the Postgres instance and
+    changing the `wal_level` requires a restart of the PostgreSQL instance and
     can affect database performance.
 
 1. Restart the database so all changes can take effect.
@@ -176,8 +182,8 @@ Once logical replication is enabled:
 **Minimum requirements:** Debezium 1.5+
 
 Debezium is deployed as a set of Kafka Connect-compatible connectors, so you
-first need to define a Postgres connector configuration and then start the
-connector by adding it to Kafka Connect.
+first need to define a SQL connector configuration and then start the connector
+by adding it to Kafka Connect.
 
 {{< warning >}}
 If you deploy the PostgreSQL Debezium connector in [Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/cc-mysql-source-cdc-debezium.html),

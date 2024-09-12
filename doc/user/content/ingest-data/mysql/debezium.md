@@ -1,6 +1,6 @@
 ---
 title: "MySQL CDC using Kafka and Debezium"
-description: "How to propagate Change Data Capture (CDC) data from a MySQL database to Materialize"
+description: "How to propagate Change Data Capture (CDC) data from a MySQL database to Materialize using Kafka and Debezium"
 aliases:
   - /guides/cdc-mysql/
   - /integrations/cdc-mysql/
@@ -13,6 +13,13 @@ menu:
     identifier: "mysql-dbz"
 ---
 
+{{< note >}}
+You can use [Debezium](https://debezium.io/) to propagate Change
+Data Capture(CDC) data to Materialize from a MySQL database, but
+we **strongly recommend** using the native [MySQL](/sql/create-source/mysql/)
+source instead.
+{{</ note >}}
+
 Change Data Capture (CDC) allows you to track and propagate changes in a MySQL
 database to downstream consumers based on its binary log (`binlog`). In this
 guide, we'll cover how to use Materialize to create and efficiently maintain
@@ -22,15 +29,7 @@ real-time materialized views on top of CDC data.
 {{< guided-tour-blurb-for-ingest-data >}}
 {{< /tip >}}
 
-## Kafka + Debezium
-
-You can use [Debezium](https://debezium.io/) and the [Kafka source](/sql/create-source/kafka/#using-debezium)
-to propagate CDC data from MySQL to Materialize. Debezium captures row-level
-changes resulting from `INSERT`, `UPDATE` and `DELETE` operations in the
-upstream database and publishes them as events to Kafka using Kafka
-Connect-compatible connectors.
-
-### Database setup
+## A. Configure database
 
 Before deploying a Debezium connector, you need to ensure that the upstream
 database is configured to support [row-based replication](https://dev.mysql.com/doc/refman/8.0/en/replication-rbr-usage.html).
